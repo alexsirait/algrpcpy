@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package barang;
+
+service BarangService {
+    rpc CreateBarang (Barang) returns (BarangResponse);
+    rpc GetBarang (BarangRequest) returns (BarangResponse);
+    rpc UpdateBarang (Barang) returns (BarangResponse);
+    rpc DeleteBarang (BarangRequest) returns (BarangResponse);
+}
+
+message Barang {
+    int32 id = 1;
+    string barang = 2;
+    float harga = 3;
+}
+
+message BarangRequest {
+    int32 id = 1;
+}
+
+message BarangResponse {
+    string message = 1;
+    Barang barang = 2;
+}
